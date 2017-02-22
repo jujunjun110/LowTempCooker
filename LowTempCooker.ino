@@ -1,9 +1,11 @@
-int relayPin = 13;
 int thermoPin = 0;
+int relayPin = 13;
 int loopDurationSec = 3;
-float temp_low = 67.0; // 温度の下限
-float temp_high = 69.0; // 温度の上限
+float cookingModeList[][3] = {{62.0, 64.0}, {40.0, 41.0}, {66.0, 68.0}};
+int cookingMode = 0; // 0: Beef, 1: Salmon, 2: Egg
 
+float temp_low;
+float temp_high;
 int pastSecs = 0;
 int pastMinutes = 0;
 
@@ -11,6 +13,8 @@ void setup(){
   Serial.begin(9600);
   Serial.println("Cooking Start!");
   pinMode(relayPin, OUTPUT);
+  temp_low = cookingModeList[cookingMode][0];
+  temp_high = cookingModeList[cookingMode][1];
 }
 
 void loop(){
