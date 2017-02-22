@@ -1,10 +1,10 @@
 int relayPin = 13;
 int thermoPin = 0;
-int loopDuration = 1000;
+int loopDurationSec = 3;
 float temp_low = 67.0; // 温度の下限
 float temp_high = 69.0; // 温度の上限
 
-long pastMilliSecs = 0;
+int pastSecs = 0;
 int pastMinutes = 0;
 
 void setup(){
@@ -20,8 +20,8 @@ void loop(){
   turnPotIfNeeded(temperature);
   printTimeIfNeeded();
 
-  pastMilliSecs += loopDuration;
-  delay(loopDuration); 
+  pastSecs += loopDurationSec;
+  delay(loopDurationSec * 1000); 
 }
 
 float getTemperature () {
@@ -47,7 +47,7 @@ void turnPotIfNeeded (float temp) {
 }
 
 void printTimeIfNeeded() {
-  int newPastMinutes = pastMilliSecs / 60000;
+  int newPastMinutes = pastSecs / 60;
   if (newPastMinutes > pastMinutes) {
     pastMinutes = newPastMinutes;
     Serial.println("\n" + String(pastMinutes) + " minutes have passed.\n");
