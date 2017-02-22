@@ -11,10 +11,10 @@ int pastMinutes = 0;
 
 void setup(){
   Serial.begin(9600);
-  Serial.println("Cooking Start!");
-  pinMode(relayPin, OUTPUT);
   temp_low = cookingModeList[cookingMode][0];
   temp_high = cookingModeList[cookingMode][1];
+  pinMode(relayPin, OUTPUT);
+  Serial.println("Cooking Start!");
 }
 
 void loop(){
