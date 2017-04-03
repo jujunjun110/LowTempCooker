@@ -1,8 +1,12 @@
 int thermoPin = 0;
 int relayPin = 13;
-int loopDurationSec = 3;
-float cookingModeList[][3] = {{62.0, 64.0}, {40.0, 41.0}, {66.0, 68.0}};
-int cookingMode = 0; // 0: Beef, 1: Salmon, 2: Egg
+int loopDurationSec = 1;
+
+float cookingModeList[][3] = {{58.0, 60.0}, {40.0, 41.0}, {64.0, 66.0}};
+int cookingMode = 1; 
+// 0: Beef
+// 1: Salmon
+// 2: Egg
 
 float temp_low;
 float temp_high;
